@@ -104,3 +104,65 @@ footer a:hover {
     animation-duration: 2s;
     height: 170px;
 }
+
+@media only screen and (max-width: 750px) {
+    .title {
+        font-size: 15px;
+    }
+    .main__score {
+        font-size: 25px;
+    }
+
+    .main__score--yourname {
+        width: 100px;
+    }
+    .main__score--comname {
+        width: 100px;
+    }
+    .main__round {
+        font-size: 25px;
+    }
+
+    .main__oponent, .main__try {
+        height: 160px;
+        width: 70%;
+    }
+
+    .main__oponent img, .main__try img{
+        height: 160px;
+    }
+
+    .main__options {
+        height: 100px;
+        margin-bottom: 0px;
+        display: flex;
+        width: 60%;
+        justify-content: center;
+    }
+    
+    .main__options img {
+        height: 100px;
+    }
+    
+    .main__options img:hover {
+        animation-duration: 2s;
+        height: 110px;
+    }
+
+
+    footer {
+        margin-top: 25px;
+        font-size: 20px;
+        display: block;
+        text-align: center;
+    }
+    footer img {
+        text-align: center;
+        width: 40px;
+        height: 45px;;
+    }
+    figure {
+        display: flex;
+        justify-content: center;
+    }
+  }
