@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body>
+    <div class="title">
+        <h1>Rock, Paper, Scissors</h1>
+    </div>
+    <div class="main">
+        <div class="main__score">
+            <div class="main__score--yourname">
+                <p>You </p>
+            </div>
+            <div class="main__score--counter" id="score"><p> 0 - 0 </p></div>
+            <div class="main__score--comname">
+                <p> Computer</p>
+            </div>
+        </div>
+        <div class="main__round">
+            <p id='round'>Round 1</p>
+        </div>
+        <div class="main__oponent">
+            <img src="./images/notDefinded.png" alt="" id="oponentOption">
+        </div>
+        <div class="main__try">
+            <img src="./images/try.png" alt="" id="playerOption">
+        </div>
+        <div class="main__options">
+            <img src="./images/rock.png" alt="rock" id="rockButton">
+            <img src="./images/paper.png" alt="paper" id="paperButton">
+            <img src="./images/scissors.png" alt="scissors" id="scissorsButton">
+        </div>
+    </div>
+    <footer>
+        <p>See more of my work in <a href="https://mauriciocarmona.com"><figure><img src="./images/logo.png" alt=""></figure> mauriciocarmona.com</a></p>
+    </footer>
+    <script src="code.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+body {
+   font-family: 'Nunito Sans', sans-serif;
+   margin: 0;
+   font-weight: 400;
+   font-size: 20px;
+}
+
+p {
+    margin: 0;
+}
+
+figure {
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0 15px 0;
+    font-size: 30px;
+}
+
+footer img {
+    margin: 10px 15px 0 15px;
+    width: 55px;
+    height: 55px;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #4370FE;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.main__score {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    font-size: 30px;
+    margin: 10px 0 10px 0;
+}
+.main__score--yourname {
+    text-align: right;
+    width: 200px;
+    height: 30px;
+}
+
+.main__score--counter {
+    text-align: center;
+    margin: 0px 25px;
+}
+
+.main__score--comname {
+    text-align: left;
+    width: 200px;
+    height: 30px;
+}
+
+.main__round {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.main__oponent, .main__try {
+    margin: auto;
+    height: 200px;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+}
+
+.main__oponent img, .main__try img{
+    height: 200px;
+}
+
+.main__options {
+    margin: auto;
+    height: 170px;
+    margin-bottom: 0px;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+}
+
+.main__options img {
+    height: 150px;
+}
+
+.main__options img:hover {
+    animation-duration: 2s;
+    height: 170px;
+}
