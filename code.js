@@ -20,8 +20,11 @@ const play = () => {
         oponentPoints = 0;
         player;
         oponent;
-        
+
+        // Clean score
         document.getElementById('score').innerHTML = `<p>${playerPoints} - ${oponentPoints}</p>`;
+        // Clean round count
+        document.getElementById('round').innerHTML = `Round ${round}`;
 
     Swal.fire({
         title: 'Welcome to the Rock, Paper, Scissors game',
