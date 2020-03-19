@@ -105,6 +105,17 @@ footer a:hover {
     height: 170px;
 }
 
+.help {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.help:hover {
+    width: 60px;
+    height: 60px;
+}
+
 @media only screen and (max-width: 750px) {
     .title {
         font-size: 15px;
@@ -149,6 +160,14 @@ footer a:hover {
         height: 110px;
     }
 
+    .help {
+        position: static;
+    }
+    
+    .help:hover {
+        width: 60px;
+        height: 60px;
+    }
 
     footer {
         margin-top: 25px;

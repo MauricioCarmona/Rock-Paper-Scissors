@@ -4,29 +4,28 @@ let paper = document.getElementById('paperButton');
 let scissors = document.getElementById('scissorsButton');
 let playerOption = document.getElementById('playerOption');
 let oponentOption = document.getElementById('oponentOption');
+let helpButton = document.getElementById('help');
 
 // Game logic
 let round = 1;
-let roundsToWin;
+var roundsToWin;
 let playerPoints = 0;
 let oponentPoints = 0;
 let player;
 let oponent;
 
-const play = () => {
-        round = 1;
-        roundsToWin;
-        playerPoints = 0;
-        oponentPoints = 0;
-        player;
-        oponent;
-
-        // Clean score
-        document.getElementById('score').innerHTML = `<p>${playerPoints} - ${oponentPoints}</p>`;
-        // Clean round count
-        document.getElementById('round').innerHTML = `Round ${round}`;
-
+const showHelp = () => {
     Swal.fire({
+        imageUrl: './images/howToPlay.jpg',
+        // imageWidth: 1000,
+        // imageHeight: 900,
+        imageAlt: 'Help',
+        confirmButtonColor: '#4370FE'
+      })
+}
+
+const askRoundsToWin = async () => {
+    let askingroundsToWin = await Swal.fire({
         title: 'Welcome to the Rock, Paper, Scissors game',
         text: 'Please select the number of rounds to win:',
         imageUrl: './images/logo.png',
@@ -39,12 +38,54 @@ const play = () => {
           left top
           no-repeat
         `,
-        input: 'number',
+        input: 'select',
+        inputOptions: {
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5',
+        6: '6',
+        7: '7',
+        8: '8',
+        9: '9',
+        10: '10'
+        },
         confirmButtonColor: '#4370FE',
-        confirmButtonText: 'PLAY!'
-      }).then((result) => {
-          roundsToWin = parseInt(result.value);
-      })
+        confirmButtonText: 'PLAY!',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        inputValidator: (value) => {
+            return new Promise((resolve) => {
+              if (!value) {
+                resolve("You can't play without selecting the number of rounds to win.");
+              }
+              else {
+                resolve();
+              }
+            })
+          }
+        })
+          roundsToWin = parseInt(await askingroundsToWin.value);
+}
+
+const play = () => {
+        round = 1;
+        roundsToWin;
+        playerPoints = 0;
+        oponentPoints = 0;
+        player;
+        oponent;
+        
+
+        // Clean score
+        document.getElementById('score').innerHTML = `<p>${playerPoints} - ${oponentPoints}</p>`;
+        // Clean round count
+        document.getElementById('round').innerHTML = `Round ${round}`;
+
+        askRoundsToWin();
+        if (roundsToWin === NaN) {
+            askRoundsToWin();
+        }
 
 }
 
@@ -96,7 +137,7 @@ const evaluate = () => {
         Swal.fire({
             icon: 'error',
             title: 'YOU LOST ):',
-            text: 'You can do better thant that, want to play again?',
+            text: 'You can do better than that, want to play again?',
             confirmButtonText: 'Yes',
           }).then((result) => {
               if(result.value) {
@@ -107,10 +148,23 @@ const evaluate = () => {
     
 }
 
+const lockButtons = () => {
+    rock.removeEventListener('click', selectRock);
+    paper.removeEventListener('click', selectPaper);
+    scissors.removeEventListener('click', selectScissors);
+}
+
+const unlockButtons = () => {
+    rock.addEventListener('click', selectRock);
+    paper.addEventListener('click', selectPaper);
+    scissors.addEventListener('click', selectScissors);
+}
+
 
 
 
 const nextRound = () => {
+    lockButtons();
     setTimeout(function() {
         //Go to the next round
         evaluate();
@@ -122,6 +176,7 @@ const nextRound = () => {
 
         //Show the current round
         document.getElementById('round').innerHTML = `Round ${round}`;
+        unlockButtons();
 
     }, 1500);
 }
@@ -179,3 +234,5 @@ rock.addEventListener('click', selectRock);
 paper.addEventListener('click', selectPaper);
 scissors.addEventListener('click', selectScissors);
 
+
+helpButton.addEventListener('click', showHelp);
